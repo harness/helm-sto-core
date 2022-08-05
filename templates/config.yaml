@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: sto-core
+  namespace: {{ .Release.Namespace }}
+data:
+  APP_ENABLE_UI: "true"
+  APP_ACL_URL: '{{ .Values.global.loadbalancerURL }}/authz/api'
+  APP_TOKEN_JWT_SECRET: "HVSKUYqD4e5Rxu12hFDdCJKGM64sxgEynvdDhaOHaTHhwwn0K4Ttr0uoOxSsEVYNrUU="
+  APP_INTERNAL_TOKEN_JWT_SECRET: "dOkdsVqdRPPRJG31XU0qY4MPqmBBMk0PTAGIKM6O7TGqhjyxScIdJe80mwh5Yb5zF3KxYBHw6B3Lfzlq"
+  APP_HARNESS_TOKEN: "token"
+  APP_NG_URL: '{{ .Values.global.loadbalancerURL }}'
+  APP_AUDIT_JWT_SECRET: test

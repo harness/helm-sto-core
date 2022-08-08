@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: sto-core 
+  name: sto-core
   namespace: {{ .Release.Namespace }}
   labels:
     {{- include "sto-core.labels" . | nindent 4 }}
@@ -42,9 +42,19 @@ spec:
         - name: sto-core
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
-          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          image: {{ include "harnesscommon.names.imagename" . }}
           imagePullPolicy: {{ .Values.image.pullPolicy }}
-          env: 
+          env:
+          - name: APP_HARNESS_TOKEN
+            valueFrom:
+              secretKeyRef:
+                name: harness-secrets
+                key: stoAppHarnessToken
+          - name: APP_AUDIT_JWT_SECRET
+            valueFrom:
+              secretKeyRef:
+                name: harness-secrets
+                key: stoAppAuditJWTSecret
           - name: DB_PASSWORD
             valueFrom:
               secretKeyRef:
@@ -53,7 +63,7 @@ spec:
           - name: APP_DATABASE_DATASOURCE
             value: "postgres://postgres:$(DB_PASSWORD)@postgres:5432"
           - name: APP_DB_MIGRATION_DATASOURCE
-            value: "postgres://postgres:$(DB_PASSWORD)@postgres:5432" 
+            value: "postgres://postgres:$(DB_PASSWORD)@postgres:5432"
           envFrom:
           - configMapRef:
               name: sto-core
@@ -97,4 +107,3 @@ spec:
       tolerations:
         {{- toYaml . | nindent 8 }}
       {{- end }}
-

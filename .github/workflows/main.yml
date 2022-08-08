@@ -46,11 +46,11 @@ jobs:
           fi
 
       - name: Run chart-testing (lint)
-        run: ct lint --target-branch develop
+        run: ct lint --target-branch develop --chart-dirs src
 
       - name: Create kind cluster/search
         uses: helm/kind-action@v1.2.0
         if: steps.list-changed.outputs.changed == 'true'
 
       - name: Run chart-testing (install)
-        run: ct install
+        run: ct install --chart-dirs src

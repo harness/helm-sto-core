@@ -14,6 +14,6 @@ spec:
   minReplicas: {{ .Values.autoscaling.minReplicas }}
   maxReplicas: {{ .Values.autoscaling.maxReplicas }}
   {{- if .Values.autoscaling.targetCPUUtilizationPercentage }}
-  targetCPUUtilizationPercentage : {{ Values.autoscaling.targetCPUUtilizationPercentage }}
+  targetCPUUtilizationPercentage : {{ .Values.autoscaling.targetCPUUtilizationPercentage }}
   {{ end }}
 {{- end }}

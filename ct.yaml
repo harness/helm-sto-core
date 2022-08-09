@@ -1,5 +1,0 @@
-remote: origin
-target-branch: develop
-chart-dirs:
-  - charts
-  - src

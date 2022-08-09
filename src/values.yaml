@@ -8,7 +8,7 @@ maxSurge: 100%
 maxUnavailable: 0
 
 image:
-  repository: harness/stocore-signed 
+  repository: harness/stocore-signed
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
   tag: "v2-alpha15"
@@ -74,7 +74,7 @@ resources:
     cpu: 500m
     memory: 500Mi
 
-autoscaling:
+autoscaling: 
   enabled: true
   minReplicas: 1
   maxReplicas: 100

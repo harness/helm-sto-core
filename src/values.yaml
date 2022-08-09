@@ -74,7 +74,7 @@ resources:
     cpu: 500m
     memory: 500Mi
 
-autoscaling: 
+autoscaling:
   enabled: true
   minReplicas: 1
   maxReplicas: 100

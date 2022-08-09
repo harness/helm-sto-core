@@ -2,7 +2,7 @@ name: CI
 
 # Controls when the workflow will run
 on:
-  # Triggers the workflow on push or pull request events but only for the "main" branch
+  # Triggers the workflow on push or pull request events for specified branches
   push:
     branches: [ "develop" ]
   pull_request:
@@ -34,23 +34,27 @@ jobs:
         with:
           python-version: 3.7
 
+      # Chart testing command docs https://github.com/helm/chart-testing#usage
       - name: Set up chart-testing
         uses: helm/chart-testing-action@v2.2.1
 
-      - name: Run chart-testing (list-changed)
-        id: list-changed
-        run: |
-          changed=$(ct list-changed --target-branch ${{ github.event.repository.default_branch }})
-          if [[ -n "$changed" ]]; then
-            echo "::set-output name=changed::true"
-          fi
+      # - name: Run chart-testing (list-changed)
+      #   working-directory: ./src
+      #   id: list-changed
+      #   run: |
+      #     changed=$(ct list-changed --target-branch=develop)
+      #     if [[ -n "$changed" ]]; then
+      #       echo "::set-output name=changed::true"
+      #     fi
 
       - name: Run chart-testing (lint)
-        run: ct lint --target-branch ${{ github.event.repository.default_branch }}
+        working-directory: ./src
+        run: ct lint --target-branch=develop --charts=. --chart-repos=harness-common=https://harness.github.io/helm-common/charts,common=https://charts.bitnami.com/bitnami --validate-maintainers=false
 
-      - name: Create kind cluster
-        uses: helm/kind-action@v1.2.0
-        if: steps.list-changed.outputs.changed == 'true'
+      # - name: Create kind cluster/search
+      #   uses: helm/kind-action@v1.2.0
+      #   if: steps.list-changed.outputs.changed == 'true'
 
-      - name: Run chart-testing (install)
-        run: ct install
+      # - name: Run chart-testing (install)
+      #   working-directory: ./src
+      #   run: ct install --target-branch=develop --charts=. --chart-repos=harness-common=https://harness.github.io/helm-common/charts,common=https://charts.bitnami.com/bitnami

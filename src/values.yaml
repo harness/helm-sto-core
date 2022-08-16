@@ -17,8 +17,7 @@ initContainers:
   check:
     image:
       tag: 1.33.1
-      repository: registry.dso.mil/platform-one/big-bang/apps/third-party/harness/busybox
-
+      repository: busybox
 
 nameOverride: ""
 fullnameOverride: ""

@@ -19,7 +19,6 @@ initContainers:
       tag: 1.33.1
       repository: busybox
 
-
 nameOverride: ""
 fullnameOverride: ""
 

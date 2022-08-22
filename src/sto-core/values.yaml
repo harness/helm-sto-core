@@ -8,16 +8,20 @@ maxSurge: 100%
 maxUnavailable: 0
 
 image:
+  registry: docker.io
   repository: harness/stocore-signed
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
   tag: "v2-alpha15"
+  digest: ""
 
-initContainers:
-  check:
-    image:
-      tag: 1.33.1
-      repository: busybox
+initContainer:
+  image:
+    registry: docker.io
+    repository: busybox
+    pullPolicy: IfNotPresent
+    tag: 1.33.1
+    digest: ""
 
 nameOverride: ""
 fullnameOverride: ""

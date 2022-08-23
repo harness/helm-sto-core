@@ -23,6 +23,18 @@ initContainer:
     tag: 1.33.1
     digest: ""
 
+stoAppHarnessToken:
+  name: harness-secrets
+  key: stoAppHarnessToken
+
+stoAppAuditJWTSecret:
+  name: harness-secrets
+  key: stoAppAuditJWTSecret
+
+postgresPassword:
+  name: postgres
+  key: postgres-password
+
 nameOverride: ""
 fullnameOverride: ""
 

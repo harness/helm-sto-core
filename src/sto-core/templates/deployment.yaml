@@ -48,18 +48,18 @@ spec:
           - name: APP_HARNESS_TOKEN
             valueFrom:
               secretKeyRef:
-                name: harness-secrets
-                key: stoAppHarnessToken
+                name: {{ .Values.stoAppHarnessToken.name }}
+                key: {{ .Values.stoAppHarnessToken.key }}
           - name: APP_AUDIT_JWT_SECRET
             valueFrom:
               secretKeyRef:
-                name: harness-secrets
-                key: stoAppAuditJWTSecret
+                name: {{ .Values.stoAppAuditJWTSecret.name }}
+                key: {{ .Values.stoAppAuditJWTSecret.key }}
           - name: DB_PASSWORD
             valueFrom:
               secretKeyRef:
-                name: postgres
-                key: postgres-password
+                name: {{ .Values.postgresPassword.name }}
+                key: {{ .Values.postgresPassword.key }}
           - name: APP_DATABASE_DATASOURCE
             value: "postgres://postgres:$(DB_PASSWORD)@postgres:5432"
           - name: APP_DB_MIGRATION_DATASOURCE

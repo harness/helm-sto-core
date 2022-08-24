@@ -39,7 +39,7 @@ spec:
         imagePullPolicy: IfNotPresent
         args:
           - "pod"
-          - "-lapp=app.kubernetes.io/name:postgresql"
+          - "-lapp=postgres"
       containers:
         - name: sto-core
           securityContext:

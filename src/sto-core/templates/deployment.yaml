@@ -34,10 +34,12 @@ spec:
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
       initContainers:
-        - name: check-for-postgres
-          image: {{ include "common.images.image" (dict "imageRoot" .Values.initContainer.image "global" .Values.global) }}
-          command: ["sh","-c"]
-          args: ['while ! nc -z postgres:5432 2>/dev/null; do let elapsed=elapsed+1; if [ "$elapsed" -gt 90 ]; then echo "waiting"; exit 1; fi; sleep 1; done; echo "postgres is ready" ']
+      - name: wait-for-postgres
+        image: {{ include "common.images.image" (dict "imageRoot" .Values.waitForInitContainer.image "global" .Values.global) }}
+        imagePullPolicy: IfNotPresent
+        args:
+          - "pod"
+          - "-lapp=app.kubernetes.io/name:postgresql"
       containers:
         - name: sto-core
           securityContext:

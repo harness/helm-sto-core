@@ -15,12 +15,12 @@ image:
   tag: "v2-alpha15"
   digest: ""
 
-initContainer:
+waitForInitContainer:
   image:
     registry: docker.io
-    repository: busybox
+    repository: harness/helm-init-container
     pullPolicy: IfNotPresent
-    tag: 1.33.1
+    tag: "latest"
     digest: ""
 
 stoAppHarnessToken:

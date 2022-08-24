@@ -3,6 +3,23 @@ entries:
   sto-core:
   - apiVersion: v2
     appVersion: 0.0.1
+    created: "2022-08-24T21:35:42.046497024Z"
+    dependencies:
+    - name: common
+      repository: https://charts.bitnami.com/bitnami
+      version: 2.x.x
+    - name: harness-common
+      repository: https://harness.github.io/helm-common
+      version: 1.x.x
+    description: A Helm chart for Kubernetes
+    digest: 19dfbf13460bf0b7457ecfe164e61ed5c50a467257e87b4d455032d854eca7d5
+    name: sto-core
+    type: application
+    urls:
+    - https://github.com/harness/helm-sto-core/releases/download/sto-core-0.2.4/sto-core-0.2.4.tgz
+    version: 0.2.4
+  - apiVersion: v2
+    appVersion: 0.0.1
     created: "2022-08-24T21:04:05.397687206Z"
     dependencies:
     - name: common
@@ -69,4 +86,4 @@ entries:
     urls:
     - https://github.com/harness/helm-sto-core/releases/download/sto-core-0.2.0/sto-core-0.2.0.tgz
     version: 0.2.0
-generated: "2022-08-24T21:04:05.397720807Z"
+generated: "2022-08-24T21:35:42.046525024Z"

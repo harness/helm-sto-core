@@ -32,6 +32,7 @@ stoAppAuditJWTSecret:
   name: harness-secrets
   key: stoAppAuditJWTSecret
 
+# Postgres secret value and key
 postgresPassword:
   name: postgres
   key: postgres-password

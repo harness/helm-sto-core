@@ -40,7 +40,8 @@ jobs:
 
       - name: Execute readme-generator-for-helm
         run: |
-          readme-generator-for-helm/bin/index.js --values "src/sto-core/values.yaml" --readme "src/sto-core/README.md" --schema "/tmp/schema.json"
+          cd src/sto-core
+          readme-generator-for-helm/bin/index.js --readme "../../README.md" --schema "/tmp/schema.json"
 
       - name: Push changes
         run: |

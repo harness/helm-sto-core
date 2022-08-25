@@ -1,7 +1,7 @@
 # Default values for sto-core.
 # This is a YAML-formatted file.
 global:
-  # Default, just for testing
+  # Default, just for linting 
   loadbalancerURL: "http://test/"
 replicaCount: 1
 maxSurge: 100%

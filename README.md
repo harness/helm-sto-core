@@ -1,1 +1,1 @@
-#Helm chart for sto-core
+src/sto-core/README.md

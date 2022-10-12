@@ -2,6 +2,20 @@ apiVersion: v1
 entries:
   sto-core:
   - apiVersion: v2
+    appVersion: 1.7.2
+    created: "2022-10-12T19:34:40.577843197Z"
+    dependencies:
+    - name: harness-common
+      repository: https://harness.github.io/helm-common
+      version: 1.x.x
+    description: A Helm chart for Kubernetes
+    digest: bac572efac57f391a9b6a7a35a04a7bac9cf5098095abd95ac95ffa43b346095
+    name: sto-core
+    type: application
+    urls:
+    - https://github.com/harness/helm-sto-core/releases/download/sto-core-0.2.7/sto-core-0.2.7.tgz
+    version: 0.2.7
+  - apiVersion: v2
     appVersion: 0.0.1
     created: "2022-09-01T12:43:44.861814096Z"
     dependencies:
@@ -117,4 +131,4 @@ entries:
     urls:
     - https://github.com/harness/helm-sto-core/releases/download/sto-core-0.2.0/sto-core-0.2.0.tgz
     version: 0.2.0
-generated: "2022-09-01T12:43:44.863477915Z"
+generated: "2022-10-12T19:34:40.577957896Z"

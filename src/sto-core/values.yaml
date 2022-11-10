@@ -4,6 +4,8 @@ replicaCount: 1
 maxSurge: 100%
 maxUnavailable: 0
 
+retryMigrations: true
+
 image:
   registry: docker.io
   repository: harness/stocore-signed

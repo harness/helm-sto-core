@@ -66,6 +66,10 @@ spec:
             value: "postgres://postgres:$(DB_PASSWORD)@postgres:5432"
           - name: APP_DB_MIGRATION_DATASOURCE
             value: "postgres://postgres:$(DB_PASSWORD)@postgres:5432"
+          {{- if .Values.retryMigrations }}
+          - name: APP_DATABASE_RETRY_MIGRATION
+            value: "1"
+          {{- end }}
           envFrom:
           - configMapRef:
               name: sto-core

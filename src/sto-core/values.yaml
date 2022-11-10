@@ -1,18 +1,17 @@
 # Default values for sto-core.
 # This is a YAML-formatted file.
-global:
-  # Default, just for linting
-  loadbalancerURL: "http://test/"
 replicaCount: 1
 maxSurge: 100%
 maxUnavailable: 0
+
+retryMigrations: true
 
 image:
   registry: docker.io
   repository: harness/stocore-signed
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "v1.7.2"
+  tag: "v1.13.3"
   digest: ""
 
 ## -- initContainer for Harness application waits

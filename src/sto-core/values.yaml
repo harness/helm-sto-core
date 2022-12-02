@@ -12,7 +12,7 @@ image:
   repository: harness/stocore-signed
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "v2-alpha15"
+  tag: "v1.13.3"
   digest: ""
 
 ## -- initContainer for Harness application waits

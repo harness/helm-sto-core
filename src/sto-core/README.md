@@ -1,6 +1,6 @@
 # sto-core
 
-![Version: 0.2.7](https://img.shields.io/badge/Version-0.2.7-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.7.2](https://img.shields.io/badge/AppVersion-1.7.2-informational?style=flat-square)
+![Version: 0.2.10](https://img.shields.io/badge/Version-0.2.10-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.13.3](https://img.shields.io/badge/AppVersion-1.13.3-informational?style=flat-square)
 
 A Helm chart for Kubernetes
 
@@ -8,7 +8,6 @@ A Helm chart for Kubernetes
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://charts.bitnami.com/bitnami | common | 2.x.x |
 | https://harness.github.io/helm-common | harness-common | 1.x.x |
 
 ## Values
@@ -25,7 +24,7 @@ A Helm chart for Kubernetes
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.registry | string | `"docker.io"` |  |
 | image.repository | string | `"harness/stocore-signed"` |  |
-| image.tag | string | `"v2-alpha15"` |  |
+| image.tag | string | `"v1.14.4"` |  |
 | maxSurge | string | `"100%"` |  |
 | maxUnavailable | int | `0` |  |
 | nameOverride | string | `""` |  |
@@ -37,6 +36,7 @@ A Helm chart for Kubernetes
 | replicaCount | int | `1` |  |
 | resources.requests.cpu | string | `"500m"` |  |
 | resources.requests.memory | string | `"500Mi"` |  |
+| retryMigrations | bool | `true` |  |
 | securityContext | object | `{}` |  |
 | service.port | int | `4000` |  |
 | service.type | string | `"ClusterIP"` |  |
